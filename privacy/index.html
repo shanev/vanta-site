@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanta — Privacy Policy</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0a0a0a; color: #e8e8ea; padding: 3rem 1.25rem;
+  }
+  main { max-width: 42rem; margin: 0 auto; }
+  a { color: #c8c8cc; }
+  h1 { font-size: 1.9rem; letter-spacing: -.02em; margin: 0 0 .25rem; }
+  h2 { font-size: 1.2rem; margin: 2.25rem 0 .5rem; }
+  .updated { color: #6a6a70; font-size: .9rem; margin-bottom: 2rem; }
+  strong { color: #fff; }
+  ul { padding-left: 1.2rem; }
+  li { margin: .4rem 0; }
+  .home { display: inline-block; margin-top: 3rem; color: #9a9aa0; text-decoration: none; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: June 6, 2026</p>
+
+  <p>Vanta is a lightweight iOS app for browsing your Obsidian vault and capturing
+  notes, stored in your own private GitHub repository. This policy explains what
+  data the app handles.</p>
+
+  <h2>The short version</h2>
+  <p>Vanta has <strong>no backend servers</strong>. Your data moves directly between
+  your device and GitHub. We do not collect, store, see, sell, or share any of your
+  data. We run no analytics and no tracking.</p>
+
+  <h2>What the app accesses</h2>
+  <ul>
+    <li><strong>Your GitHub account.</strong> You sign in with GitHub's official OAuth
+    device flow. Vanta requests the <code>repo</code> scope so it can read the vault
+    repository you choose and write your captures and edits back to it. The resulting
+    access token is stored securely on your device (iOS Keychain, and an app‑group
+    container so the widget and share extension can capture on your behalf). The token
+    never leaves your device except in requests sent directly to GitHub's API.</li>
+    <li><strong>Your notes.</strong> Note content is fetched from, and written to, your
+    GitHub repository over an encrypted connection. A copy is cached on your device for
+    offline reading. Note content is never sent anywhere other than GitHub.</li>
+    <li><strong>Microphone &amp; speech (optional).</strong> If you use voice capture,
+    audio is transcribed <strong>on your device</strong> using Apple's Speech framework.
+    Audio and transcripts are not sent to us or any third party.</li>
+  </ul>
+
+  <h2>What we collect</h2>
+  <p>Nothing. Vanta has no servers, accounts, analytics, advertising, or third‑party
+  SDKs. There is no data for us to collect.</p>
+
+  <h2>Data deletion</h2>
+  <p>Sign out in Settings to remove the stored GitHub token and local cache from your
+  device. To revoke Vanta's access entirely, remove the authorization in your GitHub
+  account settings (Settings → Applications).</p>
+
+  <h2>Contact</h2>
+  <p>Questions? Email <a href="mailto:shanev@gmail.com">shanev@gmail.com</a>.</p>
+
+  <a class="home" href="../">← Vanta</a>
+</main>
+</body>
+</html>
