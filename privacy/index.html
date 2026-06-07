@@ -25,25 +25,30 @@
 <body>
 <main>
   <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: June 6, 2026</p>
+  <p class="updated">Last updated: June 7, 2026</p>
 
   <p>Vanta is a lightweight iOS app for browsing your Obsidian vault and capturing
   notes, stored in your own private GitHub repository. This policy explains what
   data the app handles.</p>
 
   <h2>The short version</h2>
-  <p>Vanta has <strong>no backend servers</strong>. Your data moves directly between
-  your device and GitHub. We do not collect, store, see, sell, or share any of your
-  data. We run no analytics and no tracking.</p>
+  <p>Your data moves directly between your device and GitHub. We do not collect,
+  store, see, sell, or share any of your data. We run no analytics and no tracking.
+  The only server involved is a <strong>stateless sign‑in helper</strong> used once
+  during login (described below) that stores nothing.</p>
 
   <h2>What the app accesses</h2>
   <ul>
-    <li><strong>Your GitHub account.</strong> You sign in with GitHub's official OAuth
-    device flow. Vanta requests the <code>repo</code> scope so it can read the vault
-    repository you choose and write your captures and edits back to it. The resulting
-    access token is stored securely on your device (iOS Keychain, and an app‑group
-    container so the widget and share extension can capture on your behalf). The token
-    never leaves your device except in requests sent directly to GitHub's API.</li>
+    <li><strong>Your GitHub account.</strong> You sign in with GitHub's official OAuth.
+    Vanta requests the <code>repo</code> scope so it can read the vault repository you
+    choose and write your captures and edits back to it. Completing GitHub login requires
+    exchanging a one‑time login code for an access token using a secret that can't safely
+    live in the app, so Vanta uses a <strong>minimal, stateless sign‑in helper</strong>
+    (a Cloudflare Worker) that performs only that exchange and immediately hands the token
+    back to your device. It stores nothing, logs no personal data, and never has access to
+    your notes. The resulting access token is then stored securely on your device (iOS
+    Keychain, and an app‑group container so the widget and share extension can capture on
+    your behalf), and is used only in requests sent directly to GitHub's API.</li>
     <li><strong>Your notes.</strong> Note content is fetched from, and written to, your
     GitHub repository over an encrypted connection. A copy is cached on your device for
     offline reading. Note content is never sent anywhere other than GitHub.</li>
@@ -53,8 +58,8 @@
   </ul>
 
   <h2>What we collect</h2>
-  <p>Nothing. Vanta has no servers, accounts, analytics, advertising, or third‑party
-  SDKs. There is no data for us to collect.</p>
+  <p>Nothing. Vanta has no accounts, analytics, advertising, or third‑party SDKs, and
+  the sign‑in helper stores nothing. There is no data for us to collect.</p>
 
   <h2>Data deletion</h2>
   <p>Sign out in Settings to remove the stored GitHub token and local cache from your
