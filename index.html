@@ -4,44 +4,120 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Vanta — Obsidian for GitHub</title>
-<meta name="description" content="Browse your Obsidian vault and capture to your inbox — straight from your private GitHub repo. No servers in between.">
+<meta name="description" content="A lightweight iOS client for your Obsidian vault, backed by your own private GitHub repo. Browse, capture, and run your GTD system — with on-device AI. No servers, no sync subscription.">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Vanta — Obsidian for GitHub">
+<meta property="og:description" content="Your Obsidian vault on iPhone, backed by your own private GitHub repo. Browse, capture, GTD, and on-device AI. No servers, no subscription.">
+<meta property="og:url" content="https://vanta.shanev.ai/">
+<meta property="og:image" content="https://vanta.shanev.ai/shots/2_note.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vanta — Obsidian for GitHub">
+<meta name="twitter:description" content="Your Obsidian vault on iPhone, backed by your own private GitHub repo. On-device AI, GTD, no subscription.">
+<meta name="twitter:image" content="https://vanta.shanev.ai/shots/2_note.png">
+
 <style>
-  :root { color-scheme: light dark; }
+  :root { color-scheme: dark; }
   * { box-sizing: border-box; }
   body {
-    margin: 0; min-height: 100vh;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0;
     font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background: #0a0a0a; color: #e8e8ea; text-align: center; padding: 2rem;
+    background: #0a0a0a; color: #e8e8ea;
+    -webkit-font-smoothing: antialiased;
   }
+  a { color: #c8c8cc; }
+  .wrap { max-width: 60rem; margin: 0 auto; padding: 0 1.5rem; }
+
+  /* Hero */
+  header { text-align: center; padding: 5.5rem 1.5rem 3rem; }
   .mark {
-    width: 88px; height: 88px; border-radius: 20px;
+    width: 84px; height: 84px; border-radius: 20px; margin: 0 auto 1.5rem;
     background: linear-gradient(160deg, #1c1c1e, #000);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 10px 40px rgba(0,0,0,.5); margin-bottom: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,.5);
   }
   .mark span {
     font-family: "Snell Roundhand", "Apple Chancery", cursive;
-    font-size: 56px; font-weight: 700;
+    font-size: 54px; font-weight: 700;
     background: linear-gradient(180deg, #f4f4f6, #9a9aa0);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  h1 { font-size: 2rem; margin: 0 0 .25rem; letter-spacing: -.02em; }
-  p.tag { color: #9a9aa0; max-width: 32ch; margin: 0 0 2rem; }
+  h1 { font-size: 2.6rem; letter-spacing: -.03em; margin: 0 0 .5rem; }
+  .sub { color: #a0a0a6; max-width: 40ch; margin: 0 auto 2rem; font-size: 1.15rem; }
+  .cta { display: flex; gap: .75rem; justify-content: center; align-items: center; flex-wrap: wrap; }
   a.btn {
-    color: #e8e8ea; text-decoration: none; border: 1px solid #2c2c2e;
-    padding: .6rem 1.2rem; border-radius: 999px; transition: border-color .2s;
+    text-decoration: none; font-weight: 600;
+    padding: .7rem 1.4rem; border-radius: 999px; transition: transform .15s, background .2s;
   }
-  a.btn:hover { border-color: #6a6a70; }
-  footer { margin-top: 3rem; color: #6a6a70; font-size: .85rem; }
+  a.primary { background: #f4f4f6; color: #0a0a0a; }
+  a.primary:hover { transform: translateY(-1px); background: #fff; }
+  .muted { color: #6a6a70; font-size: .95rem; }
+
+  /* Screenshots */
+  .shots {
+    display: flex; gap: 1.25rem; justify-content: center; align-items: flex-end;
+    padding: 2rem 1.5rem 1rem; overflow-x: auto;
+  }
+  .shots img {
+    width: 220px; border-radius: 22px; border: 1px solid #1f1f22;
+    box-shadow: 0 18px 50px rgba(0,0,0,.55); flex: 0 0 auto;
+  }
+  .shots img:nth-child(2) { width: 250px; }
+
+  /* Features */
+  section.features { padding: 3.5rem 0 2rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2rem; }
+  .feat h3 { margin: 0 0 .3rem; font-size: 1.08rem; }
+  .feat p { margin: 0; color: #98989e; font-size: .98rem; }
+  .feat .ico { font-size: 1.3rem; }
+
+  .pitch { text-align: center; color: #a0a0a6; max-width: 44ch; margin: 2.5rem auto 0; }
+  .pitch strong { color: #f4f4f6; }
+
+  footer { text-align: center; color: #6a6a70; font-size: .9rem; padding: 4rem 1.5rem 3rem; }
   footer a { color: #9a9aa0; }
+  @media (max-width: 540px) { h1 { font-size: 2.1rem; } .shots img { width: 180px; } .shots img:nth-child(2){width:200px;} }
 </style>
 </head>
 <body>
+
+<header>
   <div class="mark"><span>V</span></div>
   <h1>Vanta</h1>
-  <p class="tag">Your Obsidian vault on iPhone, backed by your own private GitHub repo. No servers in between.</p>
-  <a class="btn" href="./privacy/">Privacy Policy</a>
-  <footer>© 2026 Shane Vitarana · <a href="mailto:support@shanev.ai">support@shanev.ai</a></footer>
+  <p class="sub">Your Obsidian vault on iPhone, backed by your own private GitHub repo. No servers in between.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://testflight.apple.com/join/tvCNmH2j">Join the TestFlight beta</a>
+    <span class="muted">App Store — coming soon</span>
+  </div>
+</header>
+
+<div class="shots">
+  <img src="./shots/1_vault.png" alt="Vault browser" loading="lazy">
+  <img src="./shots/2_note.png" alt="A note with syntax-highlighted code and callouts" loading="lazy">
+  <img src="./shots/3_capture.png" alt="Quick capture" loading="lazy">
+</div>
+
+<div class="wrap">
+  <section class="features">
+    <div class="grid">
+      <div class="feat"><div class="ico">📁</div><h3>Your vault, in your pocket</h3><p>Browse and edit your Obsidian notes straight from your private GitHub repo. Wikilinks, backlinks, folders.</p></div>
+      <div class="feat"><div class="ico">🎙️</div><h3>Capture anywhere</h3><p>One‑tap and dictation capture to your inbox — with on‑device cleanup that fixes mis‑heard vault terms.</p></div>
+      <div class="feat"><div class="ico">✨</div><h3>Beautiful Markdown</h3><p>Syntax‑highlighted code, callouts, tags, tables, images, and SVG — rendered the way you wrote them.</p></div>
+      <div class="feat"><div class="ico">✅</div><h3>GTD, built in</h3><p>Next Actions, Waiting For, a weekly review, a logbook, and favorites — convention over configuration.</p></div>
+      <div class="feat"><div class="ico">🧠</div><h3>On‑device AI</h3><p>Format, summarize, suggest tags, and find next actions — private, free, and offline. No account, nothing sent.</p></div>
+      <div class="feat"><div class="ico">🔒</div><h3>No servers, no subscription</h3><p>Your notes move directly between your device and GitHub. We run no analytics and store nothing.</p></div>
+    </div>
+
+    <p class="pitch">Vanta is built on <strong>your</strong> infrastructure: a private GitHub repo you already own, in plain Markdown you can read anywhere. Favorites even sync with Obsidian’s native bookmarks.</p>
+  </section>
+</div>
+
+<footer>
+  <a href="./privacy/">Privacy</a> &nbsp;·&nbsp;
+  <a href="mailto:support@shanev.ai">support@shanev.ai</a><br><br>
+  © 2026 Shane Vitarana
+</footer>
+
 </body>
 </html>
