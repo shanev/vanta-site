@@ -51,50 +51,31 @@
   a.primary:hover { transform: translateY(-1px); background: #fff; }
   .muted { color: #6a6a70; font-size: .95rem; }
 
-  /* Screenshot carousel */
-  .carousel { position: relative; padding: 2.5rem 0 1rem; }
-  .track {
-    display: flex; gap: 2rem; overflow-x: auto; scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; padding: 0 calc(50% - 150px);
-    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  /* Feature rows — alternating image + caption */
+  .features { padding: 2rem 0 1rem; }
+  .frow {
+    display: flex; align-items: center; gap: 3.5rem;
+    max-width: 58rem; margin: 0 auto; padding: 3rem 1.5rem;
   }
-  .track::-webkit-scrollbar { display: none; }
-  .slide {
-    flex: 0 0 300px; scroll-snap-align: center;
-    opacity: .42; transform: scale(.9); transition: opacity .35s ease, transform .35s ease;
+  .frow:nth-child(even) { flex-direction: row-reverse; }
+  .fr-shot { flex: 0 0 264px; }
+  .fr-shot img {
+    width: 100%; display: block; border-radius: 30px; border: 1px solid #232327;
+    box-shadow: 0 28px 64px rgba(0,0,0,.6);
   }
-  .slide.active { opacity: 1; transform: scale(1); }
-  .slide img {
-    width: 100%; display: block; border-radius: 32px; border: 1px solid #232327;
-    box-shadow: 0 30px 70px rgba(0,0,0,.65);
-  }
-  .nav {
-    position: absolute; top: 46%; transform: translateY(-50%); z-index: 2;
-    width: 46px; height: 46px; border-radius: 999px; border: 1px solid #2a2a2e;
-    background: rgba(20,20,22,.78); color: #e8e8ea; font-size: 1.5rem; line-height: 0;
-    cursor: pointer; backdrop-filter: blur(8px); transition: background .2s, transform .12s;
-  }
-  .nav:hover { background: rgba(44,44,48,.95); }
-  .nav:active { transform: translateY(-50%) scale(.9); }
-  .nav.prev { left: max(1rem, calc(50% - 322px)); }
-  .nav.next { right: max(1rem, calc(50% - 322px)); }
-  .dots { display: flex; gap: .5rem; justify-content: center; margin-top: 1.6rem; }
-  .dot { width: 8px; height: 8px; border-radius: 999px; border: 0; padding: 0; background: #3a3a40; cursor: pointer; transition: background .25s, width .25s; }
-  .dot.active { background: #e8e8ea; width: 22px; }
-  @media (max-width: 560px) {
-    .slide { flex-basis: 250px; } .track { padding: 0 calc(50% - 125px); }
-    .nav { display: none; }
-  }
+  .fr-text { flex: 1; }
+  .fr-text h3 { font-size: 1.65rem; letter-spacing: -.02em; margin: 0 0 .6rem; }
+  .fr-text p { margin: 0; color: #a0a0a6; font-size: 1.1rem; max-width: 34ch; }
 
-  /* Features */
-  section.features { padding: 3.5rem 0 2rem; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1.5rem 2rem; }
-  .feat h3 { margin: 0 0 .3rem; font-size: 1.08rem; }
-  .feat p { margin: 0; color: #98989e; font-size: .98rem; }
-  .feat .ico { font-size: 1.3rem; }
-
-  .pitch { text-align: center; color: #a0a0a6; max-width: 44ch; margin: 2.5rem auto 0; }
+  .pitch { text-align: center; color: #a0a0a6; max-width: 46ch; margin: 3rem auto 0; padding: 0 1.5rem; }
   .pitch strong { color: #f4f4f6; }
+
+  @media (max-width: 760px) {
+    .frow, .frow:nth-child(even) { flex-direction: column; text-align: center; gap: 1.6rem; padding: 2.5rem 1.5rem; }
+    .fr-shot { flex-basis: auto; }
+    .fr-shot img { width: 240px; margin: 0 auto; }
+    .fr-text p { max-width: 40ch; margin: 0 auto; }
+  }
 
   footer { text-align: center; color: #6a6a70; font-size: .9rem; padding: 4rem 1.5rem 3rem; }
   footer a { color: #9a9aa0; }
@@ -113,74 +94,36 @@
   </div>
 </header>
 
-<div class="carousel">
-  <button class="nav prev" aria-label="Previous screenshot">&lsaquo;</button>
-  <div class="track" id="shots">
-    <div class="slide active"><img src="./shots/vault_v2.png" alt="Vault browser with a pinned Inbox" loading="lazy"></div>
-    <div class="slide"><img src="./shots/note_v2.png" alt="A note with syntax-highlighted code, callouts, and backlinks" loading="lazy"></div>
-    <div class="slide"><img src="./shots/process_v2.png" alt="Processing the inbox into Next Actions, Waiting For, Someday, Done, or Trash" loading="lazy"></div>
-    <div class="slide"><img src="./shots/review_v2.png" alt="The weekly GTD review" loading="lazy"></div>
-    <div class="slide"><img src="./shots/signin_v2.png" alt="Start with a local vault — no account needed" loading="lazy"></div>
+<section class="features">
+  <div class="frow">
+    <div class="fr-shot"><img src="./shots/vault_v2.png" alt="Vault browser with a pinned Inbox" loading="lazy"></div>
+    <div class="fr-text"><h3>Your notes, organized</h3><p>Browse and edit your Markdown vault — folders, favorites, and full-text search. Your Inbox is pinned right at the top, ready to clarify.</p></div>
   </div>
-  <button class="nav next" aria-label="Next screenshot">&rsaquo;</button>
-  <div class="dots" id="dots"></div>
-</div>
+  <div class="frow">
+    <div class="fr-shot"><img src="./shots/note_v2.png" alt="A note with syntax-highlighted code, callouts, and backlinks" loading="lazy"></div>
+    <div class="fr-text"><h3>Beautiful Markdown</h3><p>Syntax-highlighted code, callouts, tags, tables, images, SVG, wikilinks, and backlinks — rendered exactly the way you wrote them.</p></div>
+  </div>
+  <div class="frow">
+    <div class="fr-shot"><img src="./shots/process_v2.png" alt="Processing the inbox into Next Actions, Waiting For, Someday, Done, or Trash" loading="lazy"></div>
+    <div class="fr-text"><h3>Inbox to zero</h3><p>Capture a thought in a tap — type or dictate — then clarify each item into Next Actions, Waiting For, Someday, Done, or Trash in a guided flow.</p></div>
+  </div>
+  <div class="frow">
+    <div class="fr-shot"><img src="./shots/review_v2.png" alt="The weekly GTD review" loading="lazy"></div>
+    <div class="fr-text"><h3>A weekly review that flows</h3><p>See which projects need a next action, what you're waiting on, and what you finished this week. GTD, built in — with a dated logbook.</p></div>
+  </div>
+  <div class="frow">
+    <div class="fr-shot"><img src="./shots/signin_v2.png" alt="Start with a local vault — no account needed" loading="lazy"></div>
+    <div class="fr-text"><h3>Private by design</h3><p>Start with a local vault — no account, no servers. On-device AI formats, summarizes, and finds next actions, fully offline. Sync with your own private GitHub anytime. No subscription.</p></div>
+  </div>
 
-<div class="wrap">
-  <section class="features">
-    <div class="grid">
-      <div class="feat"><div class="ico">📁</div><h3>Start in seconds</h3><p>Begin with a local vault — no account needed — or connect your own private GitHub repo. Browse and edit your Markdown notes: wikilinks, backlinks, folders.</p></div>
-      <div class="feat"><div class="ico">🎙️</div><h3>Capture anywhere</h3><p>One‑tap and dictation capture to your inbox — with on‑device cleanup that fixes mis‑heard vault terms.</p></div>
-      <div class="feat"><div class="ico">✨</div><h3>Beautiful Markdown</h3><p>Syntax‑highlighted code, callouts, tags, tables, images, SVG, wikilinks, and backlinks — rendered the way you wrote them.</p></div>
-      <div class="feat"><div class="ico">✅</div><h3>GTD that flows</h3><p>Capture to your Inbox, then clarify each item — Next Actions, Waiting For, Someday, Done, or Trash. A weekly review, dated logbook, and favorites keep it all moving.</p></div>
-      <div class="feat"><div class="ico">🧠</div><h3>On‑device AI</h3><p>Format, summarize, suggest tags, and find next actions — private, free, and offline. No account, nothing sent.</p></div>
-      <div class="feat"><div class="ico">🔒</div><h3>No servers, no subscription</h3><p>Your notes live on your device, and move directly to your own GitHub if you connect it. We run no analytics and store nothing.</p></div>
-    </div>
-
-    <p class="pitch">Your notes stay in plain Markdown that's <strong>yours</strong> — on your device, and in your own private GitHub when you connect it. Favorites even sync with Obsidian’s native bookmarks.</p>
-  </section>
-</div>
+  <p class="pitch">Your notes stay in plain Markdown that's <strong>yours</strong> — on your device, and in your own private GitHub when you connect it. Favorites even sync with Obsidian’s native bookmarks.</p>
+</section>
 
 <footer>
   <a href="./privacy/">Privacy</a> &nbsp;·&nbsp;
   <a href="mailto:support@shanev.ai">support@shanev.ai</a><br><br>
   © 2026 Shane Vitarana
 </footer>
-
-<script>
-(function () {
-  var track = document.getElementById('shots');
-  if (!track) return;
-  var slides = [].slice.call(track.children);
-  var dotsWrap = document.getElementById('dots');
-  slides.forEach(function (s, i) {
-    var d = document.createElement('button');
-    d.className = 'dot'; d.setAttribute('aria-label', 'Show screenshot ' + (i + 1));
-    if (i === 0) d.classList.add('active');
-    d.addEventListener('click', function () { center(i); });
-    dotsWrap.appendChild(d);
-  });
-  var dots = [].slice.call(dotsWrap.children);
-  function center(i) { slides[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }
-  function activeIndex() {
-    var c = track.scrollLeft + track.clientWidth / 2, best = 0, bd = Infinity;
-    slides.forEach(function (s, i) { var sc = s.offsetLeft + s.offsetWidth / 2, d = Math.abs(sc - c); if (d < bd) { bd = d; best = i; } });
-    return best;
-  }
-  function update() {
-    var b = activeIndex();
-    slides.forEach(function (s, i) { s.classList.toggle('active', i === b); });
-    dots.forEach(function (d, i) { d.classList.toggle('active', i === b); });
-  }
-  var raf;
-  track.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); });
-  document.querySelector('.nav.prev').addEventListener('click', function () { center(Math.max(0, activeIndex() - 1)); });
-  document.querySelector('.nav.next').addEventListener('click', function () { center(Math.min(slides.length - 1, activeIndex() + 1)); });
-  window.addEventListener('resize', update);
-  window.addEventListener('load', update);
-  update();
-})();
-</script>
 
 </body>
 </html>
