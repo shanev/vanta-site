@@ -61,7 +61,7 @@
   }
   .frow:nth-child(even) { flex-direction: row-reverse; }
   .fr-shot { flex: 0 0 264px; }
-  .fr-shot img {
+  .fr-shot img, .fr-shot video {
     width: 100%; display: block; border-radius: 30px; border: 1px solid #232327;
     box-shadow: 0 28px 64px rgba(0,0,0,.6);
   }
@@ -117,7 +117,13 @@
     <div class="fr-text"><h3>Your notes, organized</h3><p>Browse and edit your Markdown vault — folders, favorites, and full-text search. Your <strong>Inbox</strong> and <strong>Next Actions</strong> stay pinned at the top: a GTD dashboard, always one tap away.</p></div>
   </div>
   <div class="frow">
-    <div class="fr-shot"><img src="./shots/ai_v2.png" alt="On-device AI menu: Format, Summarize, Suggest tags, Find next actions" loading="lazy"></div>
+    <div class="fr-shot">
+      <video autoplay muted loop playsinline preload="metadata" poster="./shots/ai_v3.png" aria-label="On-device AI formatting a messy note into clean Markdown">
+        <source src="./shots/format.webm" type="video/webm">
+        <source src="./shots/format.mp4" type="video/mp4">
+        <img src="./shots/ai_v2.png" alt="On-device AI formatting a note">
+      </video>
+    </div>
     <div class="fr-text"><h3>AI that runs on your phone</h3><p>Ramble a note and watch it become clean Markdown. Clean up dictation, summarize, suggest tags, and find next actions — all <strong>on-device</strong>. Private, offline, free; your notes never leave your phone.</p></div>
   </div>
   <div class="frow">
@@ -125,11 +131,17 @@
     <div class="fr-text"><h3>Beautiful Markdown</h3><p>Syntax-highlighted code, callouts, tags, tables, images, SVG, wikilinks, and backlinks — rendered exactly the way you wrote them.</p></div>
   </div>
   <div class="frow">
-    <div class="fr-shot"><img src="./shots/process_v3.png" alt="Process Inbox with a Clarify with AI button, sorting items into Next Actions, Waiting For, Someday, Done, or Trash" loading="lazy"></div>
+    <div class="fr-shot">
+      <video autoplay muted loop playsinline preload="metadata" poster="./shots/process_v3.png" aria-label="Clarify with AI sorting the inbox into Next Actions, Waiting For, and Someday">
+        <source src="./shots/clarify.webm" type="video/webm">
+        <source src="./shots/clarify.mp4" type="video/mp4">
+        <img src="./shots/process_v3.png" alt="Process Inbox with a Clarify with AI button">
+      </video>
+    </div>
     <div class="fr-text"><h3>Inbox to zero — with AI</h3><p>Capture a thought in a tap — type or dictate. Then tap <strong>Clarify with AI</strong> and it sorts your whole inbox <strong>on-device</strong> into Next Actions, Waiting For, Someday, Done, or Trash — you just confirm. Or clarify each item yourself.</p></div>
   </div>
   <div class="frow">
-    <div class="fr-shot"><img src="./shots/review_v2.png" alt="The weekly GTD review" loading="lazy"></div>
+    <div class="fr-shot"><img src="./shots/review_v3.png" alt="The weekly GTD review" loading="lazy"></div>
     <div class="fr-text"><h3>A weekly review that flows</h3><p>See which projects need a next action, what you're waiting on, and what you finished this week. GTD, built in — with a dated logbook.</p></div>
   </div>
   <div class="frow">
