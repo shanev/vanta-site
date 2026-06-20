@@ -73,6 +73,20 @@
   .pitch { text-align: center; color: #a0a0a6; max-width: 46ch; margin: 3rem auto 0; padding: 0 1.5rem; }
   .pitch strong { color: #f4f4f6; }
 
+  /* GTD workflow band */
+  .gtd { max-width: 44rem; margin: 0 auto; padding: 2rem 1.5rem 1rem; }
+  .gtd h2 { text-align: center; font-size: 1.9rem; letter-spacing: -.025em; margin: 0 0 .5rem; }
+  .gtd .lead { text-align: center; color: #a0a0a6; max-width: 40ch; margin: 0 auto 2rem; font-size: 1.1rem; }
+  .gstep { display: flex; gap: 1.1rem; align-items: flex-start; padding: 1.1rem 0; border-top: 1px solid #1d1d21; }
+  .gstep:first-of-type { border-top: 0; }
+  .gnum {
+    flex: 0 0 auto; width: 2rem; height: 2rem; border-radius: 999px;
+    border: 1px solid #2c2c33; color: #e8e8ea; font-weight: 600; font-size: .95rem;
+    display: grid; place-items: center; margin-top: .1rem;
+  }
+  .gstep h3 { font-size: 1.2rem; letter-spacing: -.01em; margin: 0 0 .15rem; }
+  .gstep p { margin: 0; color: #a0a0a6; font-size: 1.05rem; }
+
   @media (max-width: 760px) {
     .frow, .frow:nth-child(even) { flex-direction: column; text-align: center; gap: 1.6rem; padding: 2.5rem 1.5rem; }
     .fr-shot { flex-basis: auto; }
@@ -121,6 +135,16 @@
   <div class="frow">
     <div class="fr-shot"><img src="./shots/signin_v2.png" alt="Start with a local vault — no account needed" loading="lazy"></div>
     <div class="fr-text"><h3>Private by design</h3><p>Start with a local vault — no account, no servers. Sync across your devices with <strong>iCloud</strong>, or your own private <strong>GitHub</strong>, whenever you want. No subscription, no lock-in.</p></div>
+  </div>
+
+  <div class="gtd">
+    <h2>The whole GTD workflow, built in</h2>
+    <p class="lead">Vanta implements all five steps of Getting Things Done — natively, from capture to done.</p>
+    <div class="gstep"><div class="gnum">1</div><div><h3>Capture</h3><p>Get it out of your head — one tap or your voice drops anything into your Inbox, even from the share sheet.</p></div></div>
+    <div class="gstep"><div class="gnum">2</div><div><h3>Clarify</h3><p>Process your inbox to zero — by hand, or let on-device AI sort each item for you.</p></div></div>
+    <div class="gstep"><div class="gnum">3</div><div><h3>Organize</h3><p>Everything lands where it belongs: Next Actions by <code>@context</code>, Waiting For, Someday, and Projects.</p></div></div>
+    <div class="gstep"><div class="gnum">4</div><div><h3>Reflect</h3><p>A Weekly Review surfaces stalled projects and what you're waiting on, so nothing slips.</p></div></div>
+    <div class="gstep"><div class="gnum">5</div><div><h3>Engage</h3><p>Just do the work — your Next Actions stay pinned at the top of the vault, ready when you are.</p></div></div>
   </div>
 
   <p class="pitch">Your notes stay in plain Markdown that's <strong>yours</strong> — on your device, and in your own private GitHub when you connect it. Favorites even sync with Obsidian’s native bookmarks.</p>
