@@ -52,6 +52,8 @@
   a.primary { background: #f4f4f6; color: #0a0a0a; }
   a.primary:hover { transform: translateY(-1px); background: #fff; }
   .muted { color: #6a6a70; font-size: .95rem; }
+  .appstore-badge { height: 52px; width: auto; display: block; transition: transform .15s; }
+  .cta a:hover .appstore-badge { transform: translateY(-1px); }
 
   /* Feature rows — alternating image + caption */
   .features { padding: 2rem 0 1rem; }
@@ -85,6 +87,11 @@
 
   .pitch { text-align: center; color: #a0a0a6; max-width: 46ch; margin: 3rem auto 0; padding: 0 1.5rem; }
   .pitch strong { color: #f4f4f6; }
+
+  /* Closing CTA */
+  .closing { text-align: center; padding: 3.5rem 1.5rem 1rem; }
+  .closing h2 { font-size: 1.9rem; letter-spacing: -.025em; margin: 0 0 .4rem; }
+  .closing .sub { margin-bottom: 1.6rem; }
 
   /* GTD workflow band */
   .gtd { max-width: 44rem; margin: 0 auto; padding: 2rem 1.5rem 1rem; }
@@ -120,7 +127,7 @@
   <h1>Vanta</h1>
   <p class="sub">Private, local-first Markdown notes for iPhone, with on-device AI. Start with a local vault (no account, no servers), then sync with iCloud or your own private GitHub. Obsidian-compatible.</p>
   <div class="cta">
-    <a class="btn primary" href="https://apps.apple.com/app/id6777781490">Download on the App Store</a>
+    <a href="https://apps.apple.com/app/id6777781490" aria-label="Download Vanta on the App Store"><img class="appstore-badge" src="./appstore-white.svg" alt="Download on the App Store" width="156" height="52"></a>
     <a class="muted" href="https://testflight.apple.com/join/tvCNmH2j" style="text-decoration:none">or try the latest beta →</a>
   </div>
 </header>
@@ -174,6 +181,15 @@
   </div>
 
   <p class="pitch">Your notes stay in plain Markdown that's <strong>yours</strong>: on your device, and in your own private GitHub when you connect it. Favorites even sync with Obsidian’s native bookmarks.</p>
+</section>
+
+<section class="closing">
+  <h2>Start writing today</h2>
+  <p class="sub">Free on the App Store. No account, no servers.</p>
+  <div class="cta">
+    <a href="https://apps.apple.com/app/id6777781490" aria-label="Download Vanta on the App Store"><img class="appstore-badge" src="./appstore-white.svg" alt="Download on the App Store" width="156" height="52"></a>
+    <a class="muted" href="https://testflight.apple.com/join/tvCNmH2j" style="text-decoration:none">or try the latest beta →</a>
+  </div>
 </section>
 
 <footer>
